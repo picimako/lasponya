@@ -1,0 +1,40 @@
+{
+  "name": "lasponya",
+  "version": "0.1.0",
+  "description": "LSP object renderer for automated testing vscode language server implementations",
+  "publisher": "Tamás Balog",
+  "author": "Tamás Balog",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/picimako/lasponya.git"
+  },
+  "bugs": {
+    "url": "https://github.com/picimako/lasponya/issues"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "keywords": [
+    "LSP",
+    "language server",
+    "vscode language server",
+    "test automation"
+  ],
+  "license": "Apache-2.0",
+  "scripts": {
+    "compile": "tsc -p ./",
+    "pretest": "npm run compile",
+    "test": "mocha --ui tdd ./**/*.test.js",
+    "test-compile": "tsc -b ./",
+    "prepublishOnly": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/mocha": "^8.2.3",
+    "mocha": "10.1.0",
+    "ts-loader": "^9.2.9",
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "vscode-languageserver": "^8.0.2",
+    "vscode-languageserver-textdocument": "^1.0.9"
+  }
+}
