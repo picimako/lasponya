@@ -19,6 +19,10 @@ jobs:
         with:
           node-version: 16
 
+      # Run install
+      - name: Run Install
+        run: npm install
+
       # Run compilation
       - name: Run Compile
         run: npm run compile
