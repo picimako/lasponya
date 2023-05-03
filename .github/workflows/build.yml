@@ -30,3 +30,11 @@ jobs:
       # Run tests
       - name: Run Tests
         run: npm run test
+
+      # Collect Tests Result
+      - name: Collect Tests Result
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: tests-result
+          path: ${{ github.workspace }}/build/reports/tests
