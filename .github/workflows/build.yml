@@ -1,0 +1,40 @@
+name: Build
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      # Check out current repository
+      - name: Fetch Sources
+        uses: actions/checkout@v3
+
+      # Setup NodeJS
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      # Run install
+      - name: Run Install
+        run: npm install
+
+      # Run compilation
+      - name: Run Compile
+        run: npm run compile
+
+      # Run tests
+      - name: Run Tests
+        run: npm run test
+
+      # Collect Tests Result
+      - name: Collect Tests Result
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: tests-result
+          path: ${{ github.workspace }}/build/reports/tests
