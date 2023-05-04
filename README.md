@@ -1,5 +1,8 @@
 # Lasponya
 
+[![Version](https://img.shields.io/npm/v/lasponya.svg)](https://npmjs.org/package/lasponya)
+![Build](https://github.com/picimako/lasponya/workflows/Build/badge.svg)
+
 Lasponya is a test utility that 'renders' [Language Server Protocol](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/)
 objects as strings with a custom representation of them, into the tested documents.
 
